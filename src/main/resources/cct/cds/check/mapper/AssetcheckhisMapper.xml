@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cct.cds.check.mbg.mapper.AssetcheckhisMapper">
+  <resultMap id="BaseResultMap" type="cct.cds.check.mbg.model.Assetcheckhis">
+    <id column="assetChkId" jdbcType="INTEGER" property="assetchkid" />
+    <result column="assetId" jdbcType="INTEGER" property="assetid" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="taskId" jdbcType="INTEGER" property="taskid" />
+    <result column="checkResult" jdbcType="TINYINT" property="checkresult" />
+    <result column="checkMode" jdbcType="TINYINT" property="checkmode" />
+    <result column="username4unit" jdbcType="VARCHAR" property="username4unit" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    assetChkId, assetId, orgId, taskId, checkResult, checkMode, username4unit, updateTime
+  </sql>
+  <select id="selectByExample" parameterType="cct.cds.check.mbg.model.AssetcheckhisExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from assetcheckhis
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from assetcheckhis
+    where assetChkId = #{assetchkid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from assetcheckhis
+    where assetChkId = #{assetchkid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cct.cds.check.mbg.model.AssetcheckhisExample">
+    delete from assetcheckhis
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cct.cds.check.mbg.model.Assetcheckhis">
+    insert into assetcheckhis (assetChkId, assetId, orgId, 
+      taskId, checkResult, checkMode, 
+      username4unit, updateTime)
+    values (#{assetchkid,jdbcType=INTEGER}, #{assetid,jdbcType=INTEGER}, #{orgid,jdbcType=VARCHAR}, 
+      #{taskid,jdbcType=INTEGER}, #{checkresult,jdbcType=TINYINT}, #{checkmode,jdbcType=TINYINT}, 
+      #{username4unit,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cct.cds.check.mbg.model.Assetcheckhis">
+    insert into assetcheckhis
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="assetchkid != null">
+        assetChkId,
+      </if>
+      <if test="assetid != null">
+        assetId,
+      </if>
+      <if test="orgid != null">
+        orgId,
+      </if>
+      <if test="taskid != null">
+        taskId,
+      </if>
+      <if test="checkresult != null">
+        checkResult,
+      </if>
+      <if test="checkmode != null">
+        checkMode,
+      </if>
+      <if test="username4unit != null">
+        username4unit,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="assetchkid != null">
+        #{assetchkid,jdbcType=INTEGER},
+      </if>
+      <if test="assetid != null">
+        #{assetid,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null">
+        #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskid != null">
+        #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="checkresult != null">
+        #{checkresult,jdbcType=TINYINT},
+      </if>
+      <if test="checkmode != null">
+        #{checkmode,jdbcType=TINYINT},
+      </if>
+      <if test="username4unit != null">
+        #{username4unit,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cct.cds.check.mbg.model.AssetcheckhisExample" resultType="java.lang.Integer">
+    select count(*) from assetcheckhis
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update assetcheckhis
+    <set>
+      <if test="record.assetchkid != null">
+        assetChkId = #{record.assetchkid,jdbcType=INTEGER},
+      </if>
+      <if test="record.assetid != null">
+        assetId = #{record.assetid,jdbcType=INTEGER},
+      </if>
+      <if test="record.orgid != null">
+        orgId = #{record.orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskid != null">
+        taskId = #{record.taskid,jdbcType=INTEGER},
+      </if>
+      <if test="record.checkresult != null">
+        checkResult = #{record.checkresult,jdbcType=TINYINT},
+      </if>
+      <if test="record.checkmode != null">
+        checkMode = #{record.checkmode,jdbcType=TINYINT},
+      </if>
+      <if test="record.username4unit != null">
+        username4unit = #{record.username4unit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updatetime != null">
+        updateTime = #{record.updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update assetcheckhis
+    set assetChkId = #{record.assetchkid,jdbcType=INTEGER},
+      assetId = #{record.assetid,jdbcType=INTEGER},
+      orgId = #{record.orgid,jdbcType=VARCHAR},
+      taskId = #{record.taskid,jdbcType=INTEGER},
+      checkResult = #{record.checkresult,jdbcType=TINYINT},
+      checkMode = #{record.checkmode,jdbcType=TINYINT},
+      username4unit = #{record.username4unit,jdbcType=VARCHAR},
+      updateTime = #{record.updatetime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cct.cds.check.mbg.model.Assetcheckhis">
+    update assetcheckhis
+    <set>
+      <if test="assetid != null">
+        assetId = #{assetid,jdbcType=INTEGER},
+      </if>
+      <if test="orgid != null">
+        orgId = #{orgid,jdbcType=VARCHAR},
+      </if>
+      <if test="taskid != null">
+        taskId = #{taskid,jdbcType=INTEGER},
+      </if>
+      <if test="checkresult != null">
+        checkResult = #{checkresult,jdbcType=TINYINT},
+      </if>
+      <if test="checkmode != null">
+        checkMode = #{checkmode,jdbcType=TINYINT},
+      </if>
+      <if test="username4unit != null">
+        username4unit = #{username4unit,jdbcType=VARCHAR},
+      </if>
+      <if test="updatetime != null">
+        updateTime = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where assetChkId = #{assetchkid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cct.cds.check.mbg.model.Assetcheckhis">
+    update assetcheckhis
+    set assetId = #{assetid,jdbcType=INTEGER},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      taskId = #{taskid,jdbcType=INTEGER},
+      checkResult = #{checkresult,jdbcType=TINYINT},
+      checkMode = #{checkmode,jdbcType=TINYINT},
+      username4unit = #{username4unit,jdbcType=VARCHAR},
+      updateTime = #{updatetime,jdbcType=TIMESTAMP}
+    where assetChkId = #{assetchkid,jdbcType=INTEGER}
+  </update>
+</mapper>
