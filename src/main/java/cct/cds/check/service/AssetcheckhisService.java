@@ -15,7 +15,7 @@ public interface AssetcheckhisService {
 
     List<Assetrec> select4android(String orgid,String username4unit,int taskid,byte checkresult);
 
-    void check(String code4gs1, byte checkresult, int taskid);
+    void check(String orgid,String code4gs1, byte checkresult, int taskid);
 
     int addExtraAsset(String orgid,String username4unit,int taskid,String code4gs1);
 }

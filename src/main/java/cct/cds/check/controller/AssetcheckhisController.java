@@ -71,10 +71,10 @@ public class AssetcheckhisController {
     }
 
     @ApiOperation(value = "盘点")
-    @RequestMapping(value = "/check/{code4gs1}/{checkresult}/{taskid}", method = RequestMethod.POST)
+    @RequestMapping(value = "/check/{orgid}/{code4gs1}/{checkresult}/{taskid}", method = RequestMethod.POST)
     @ResponseBody
-    public CommonResult check(@PathVariable String code4gs1,@PathVariable byte checkresult,@PathVariable int taskid){
-        assetcheckhisService.check(code4gs1,checkresult,taskid);
+    public CommonResult check(@PathVariable String orgid,@PathVariable String code4gs1,@PathVariable byte checkresult,@PathVariable int taskid){
+        assetcheckhisService.check(orgid,code4gs1,checkresult,taskid);
         return CommonResult.success(1);
     }
 

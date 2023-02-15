@@ -87,10 +87,10 @@ public class AssetcheckhisserviceImpl implements AssetcheckhisService{
     }
 
     @Override
-    public void check(String code4gs1, byte checkresult,int taskid){
+    public void check(String orgid,String code4gs1, byte checkresult,int taskid){
         AssetcheckhisExample example = new AssetcheckhisExample();
         AssetrecExample example2 = new AssetrecExample();
-        example2.createCriteria().andCode4gs1EqualTo(code4gs1);
+        example2.createCriteria().andCode4gs1EqualTo(code4gs1).andOrgidEqualTo(orgid);
         int assetid = assetrecMapper.selectByExample(example2).get(0).getAssetid();
         example.createCriteria().andAssetidEqualTo(assetid).andTaskidEqualTo(taskid);
         Assetcheckhis assetcheckhis = assetcheckhisMapper.selectByExample(example).get(0);
