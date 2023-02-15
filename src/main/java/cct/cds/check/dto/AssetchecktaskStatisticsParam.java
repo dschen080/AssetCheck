@@ -1,6 +1,7 @@
 package cct.cds.check.dto;
 
 import java.util.List;
+import java.util.Date;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -23,10 +24,10 @@ public class AssetchecktaskStatisticsParam {
     private String taskabstract;
 
     @ApiModelProperty(value = "盘点开始时间")
-    private String taskbegin;
+    private Date taskbegin;
 
     @ApiModelProperty(value = "盘点结束时间")
-    private String taskend;
+    private Date taskend;
 
     @ApiModelProperty(value = "任务发起人")
     private String username4unit;
@@ -43,5 +44,6 @@ public class AssetchecktaskStatisticsParam {
     @ApiModelProperty(value = "待盘点数量")
     private int tobechecked;
 
-    
+    @ApiModelProperty(value = "创建时间")
+    private Date createtime;
 }

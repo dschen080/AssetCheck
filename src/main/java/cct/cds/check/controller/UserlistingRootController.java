@@ -44,8 +44,8 @@ public class UserlistingRootController {
     public CommonResult<CommonPage<Userlisting>> list(
                                                      @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
-                                                     @RequestParam(value = "pageSize", defaultValue = "") String orgid,
-                                                     @RequestParam(value = "pageSize", defaultValue = "") String sectname){
+                                                     @RequestParam(value = "orgid", defaultValue = "") String orgid,
+                                                     @RequestParam(value = "sectname", defaultValue = "") String sectname){
         List<Userlisting> list = userlistingRootService.list2(orgid,sectname,pageSize, pageNum);
         return CommonResult.success(CommonPage.restPage(list));
     }
@@ -76,7 +76,7 @@ public class UserlistingRootController {
     @RequestMapping(value = "/create3", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create3(@RequestBody UserInfoParam2 userInfoParam){
-        Boolean bool = userlistingRootService.create(userInfoParam);
+        Boolean bool = userlistingRootService.create3(userInfoParam);
         if(bool){
             return CommonResult.success(bool);
         }
@@ -87,7 +87,7 @@ public class UserlistingRootController {
     @RequestMapping(value = "/update3", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update3(@RequestBody UserInfoParam2 userInfoParam){
-        Boolean bool = userlistingRootService.update(userInfoParam);
+        Boolean bool = userlistingRootService.update3(userInfoParam);
         if(bool){
             return CommonResult.success(bool);
         }
@@ -98,7 +98,7 @@ public class UserlistingRootController {
     @RequestMapping(value = "/create5", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult create5(@RequestBody UserInfoParam2 userInfoParam){
-        Boolean bool = userlistingRootService.create(userInfoParam);
+        Boolean bool = userlistingRootService.create5(userInfoParam);
         if(bool){
             return CommonResult.success(bool);
         }
@@ -109,7 +109,7 @@ public class UserlistingRootController {
     @RequestMapping(value = "/update5", method = RequestMethod.POST)
     @ResponseBody
     public CommonResult update5(@RequestBody UserInfoParam2 userInfoParam){
-        Boolean bool = userlistingRootService.update(userInfoParam);
+        Boolean bool = userlistingRootService.update5(userInfoParam);
         if(bool){
             return CommonResult.success(bool);
         }

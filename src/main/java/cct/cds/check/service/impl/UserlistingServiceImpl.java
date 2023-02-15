@@ -1,5 +1,6 @@
 package cct.cds.check.service.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import cct.cds.check.bo.AdminDetails;
 import cct.cds.check.common.exception.Asserts;
+import cct.cds.check.dto.UserInfo4Android;
 import cct.cds.check.dto.UserInfoParam;
 import cct.cds.check.mbg.mapper.OrglistingMapper;
 import cct.cds.check.mbg.mapper.UserlistingMapper;
@@ -95,6 +97,7 @@ public class UserlistingServiceImpl implements UserlistingService{
         //注册
         userlisting.setUsername(userlisting.getOrgid()+userlisting.getUsername4unit());
         userlisting.setPasswd(passwordEncoder.encode(userlisting.getPasswd()));
+        userlisting.setCreatetime(new Date());
         userlistingMapper.insert(userlisting);
         return true;
     }
@@ -139,5 +142,27 @@ public class UserlistingServiceImpl implements UserlistingService{
         }
         return null;
 
+    }
+
+    @Override
+    public UserInfo4Android getAndroidUserInfo(String orgid,String username4unit){
+        UserlistingExample example = new UserlistingExample();
+        example.createCriteria().andOrgidEqualTo(orgid).andUsername4unitEqualTo(username4unit);
+        Userlisting userlisting = userlistingMapper.selectByExample(example).get(0);
+        UserInfo4Android userInfo4Android = new UserInfo4Android();
+        userInfo4Android.setNotes(userlisting.getNotes());
+        userInfo4Android.setOrgid(userlisting.getOrgid());
+        userInfo4Android.setPhone(userlisting.getPhone());
+        userInfo4Android.setRealname(userlisting.getRealname());
+        userInfo4Android.setSectname(userlisting.getSectname());
+        userInfo4Android.setStaffid(userlisting.getStaffid());
+        userInfo4Android.setUsername4unit(userlisting.getUsername4unit());
+        userInfo4Android.setUsertype(userlisting.getUsertype());
+        BeanUtil.copyProperties(userInfo4Android,userlisting);
+        OrglistingExample example2 = new OrglistingExample();
+        example2.createCriteria().andOrgidEqualTo(orgid);
+        String unitname = orglistingMapper.selectByExample(example2).get(0).getUnitname();
+        userInfo4Android.setUnitname(unitname);
+        return userInfo4Android;
     }
 }

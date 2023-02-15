@@ -10,8 +10,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class AssetchecktaskParam {
 
-    @ApiModelProperty(value = "资产记录号列表")
-    private List<Integer> assetid;
+    @ApiModelProperty(value = "任务发布方式")
+    private String option;
 
     @ApiModelProperty(value = "资产单位代码")
     private String orgid;

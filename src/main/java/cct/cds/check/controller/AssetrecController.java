@@ -33,8 +33,9 @@ public class AssetrecController {
     public CommonResult<CommonPage<Assetrec>> list(@RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
                                                      @RequestParam(value = "keyword", defaultValue = "null") String keyword,
+                                                     @RequestParam(value = "assetdept", defaultValue = "null") String assetdept,
                                                      @PathVariable String orgid){
-        List<Assetrec> list = assetrecService.list(pageSize, pageNum,keyword,orgid);
+        List<Assetrec> list = assetrecService.list(pageSize, pageNum,keyword,orgid,assetdept);
         return CommonResult.success(CommonPage.restPage(list));
     }
 

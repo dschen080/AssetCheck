@@ -5,8 +5,8 @@
     <id column="taskId" jdbcType="INTEGER" property="taskid" />
     <result column="orgId" jdbcType="VARCHAR" property="orgid" />
     <result column="taskAbstract" jdbcType="VARCHAR" property="taskabstract" />
-    <result column="taskBegin" jdbcType="VARCHAR" property="taskbegin" />
-    <result column="taskEnd" jdbcType="VARCHAR" property="taskend" />
+    <result column="taskBegin" jdbcType="TIMESTAMP" property="taskbegin" />
+    <result column="taskEnd" jdbcType="TIMESTAMP" property="taskend" />
     <result column="username4unit" jdbcType="VARCHAR" property="username4unit" />
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
   </resultMap>
@@ -106,7 +106,7 @@
       taskBegin, taskEnd, username4unit, 
       createtime)
     values (#{taskid,jdbcType=INTEGER}, #{orgid,jdbcType=VARCHAR}, #{taskabstract,jdbcType=VARCHAR}, 
-      #{taskbegin,jdbcType=VARCHAR}, #{taskend,jdbcType=VARCHAR}, #{username4unit,jdbcType=VARCHAR}, 
+      #{taskbegin,jdbcType=TIMESTAMP}, #{taskend,jdbcType=TIMESTAMP}, #{username4unit,jdbcType=VARCHAR}, 
       #{createtime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="cct.cds.check.mbg.model.Assetchecktask">
@@ -145,10 +145,10 @@
         #{taskabstract,jdbcType=VARCHAR},
       </if>
       <if test="taskbegin != null">
-        #{taskbegin,jdbcType=VARCHAR},
+        #{taskbegin,jdbcType=TIMESTAMP},
       </if>
       <if test="taskend != null">
-        #{taskend,jdbcType=VARCHAR},
+        #{taskend,jdbcType=TIMESTAMP},
       </if>
       <if test="username4unit != null">
         #{username4unit,jdbcType=VARCHAR},
@@ -177,10 +177,10 @@
         taskAbstract = #{record.taskabstract,jdbcType=VARCHAR},
       </if>
       <if test="record.taskbegin != null">
-        taskBegin = #{record.taskbegin,jdbcType=VARCHAR},
+        taskBegin = #{record.taskbegin,jdbcType=TIMESTAMP},
       </if>
       <if test="record.taskend != null">
-        taskEnd = #{record.taskend,jdbcType=VARCHAR},
+        taskEnd = #{record.taskend,jdbcType=TIMESTAMP},
       </if>
       <if test="record.username4unit != null">
         username4unit = #{record.username4unit,jdbcType=VARCHAR},
@@ -198,8 +198,8 @@
     set taskId = #{record.taskid,jdbcType=INTEGER},
       orgId = #{record.orgid,jdbcType=VARCHAR},
       taskAbstract = #{record.taskabstract,jdbcType=VARCHAR},
-      taskBegin = #{record.taskbegin,jdbcType=VARCHAR},
-      taskEnd = #{record.taskend,jdbcType=VARCHAR},
+      taskBegin = #{record.taskbegin,jdbcType=TIMESTAMP},
+      taskEnd = #{record.taskend,jdbcType=TIMESTAMP},
       username4unit = #{record.username4unit,jdbcType=VARCHAR},
       createtime = #{record.createtime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -216,10 +216,10 @@
         taskAbstract = #{taskabstract,jdbcType=VARCHAR},
       </if>
       <if test="taskbegin != null">
-        taskBegin = #{taskbegin,jdbcType=VARCHAR},
+        taskBegin = #{taskbegin,jdbcType=TIMESTAMP},
       </if>
       <if test="taskend != null">
-        taskEnd = #{taskend,jdbcType=VARCHAR},
+        taskEnd = #{taskend,jdbcType=TIMESTAMP},
       </if>
       <if test="username4unit != null">
         username4unit = #{username4unit,jdbcType=VARCHAR},
@@ -234,8 +234,8 @@
     update assetchecktask
     set orgId = #{orgid,jdbcType=VARCHAR},
       taskAbstract = #{taskabstract,jdbcType=VARCHAR},
-      taskBegin = #{taskbegin,jdbcType=VARCHAR},
-      taskEnd = #{taskend,jdbcType=VARCHAR},
+      taskBegin = #{taskbegin,jdbcType=TIMESTAMP},
+      taskEnd = #{taskend,jdbcType=TIMESTAMP},
       username4unit = #{username4unit,jdbcType=VARCHAR},
       createtime = #{createtime,jdbcType=TIMESTAMP}
     where taskId = #{taskid,jdbcType=INTEGER}

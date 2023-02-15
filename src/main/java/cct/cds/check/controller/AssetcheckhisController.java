@@ -20,6 +20,7 @@ import cct.cds.check.common.api.CommonPage;
 import cct.cds.check.common.api.CommonResult;
 import cct.cds.check.dto.AssetcheckhisParam;
 import cct.cds.check.mbg.model.Assetcheckhis;
+import cct.cds.check.mbg.model.Assetrec;
 
 
 @Api(tags = "AssetcheckhisController", description = "盘点历史管理")
@@ -60,4 +61,31 @@ public class AssetcheckhisController {
         }
         return CommonResult.failed();
     }
+
+    @ApiOperation(value = "获取盘点清单（安卓）")
+    @RequestMapping(value = "/select4android/{orgid}/{username4unit}/{taskid}/{checkresult}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult delete(@PathVariable String orgid,@PathVariable String username4unit,@PathVariable int taskid,@PathVariable byte checkresult){
+        List<Assetrec> list= assetcheckhisService.select4android(orgid,username4unit,taskid,checkresult);
+        return CommonResult.success(list);
+    }
+
+    @ApiOperation(value = "盘点")
+    @RequestMapping(value = "/check/{code4gs1}/{checkresult}/{taskid}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult check(@PathVariable String code4gs1,@PathVariable byte checkresult,@PathVariable int taskid){
+        assetcheckhisService.check(code4gs1,checkresult,taskid);
+        return CommonResult.success(1);
+    }
+
+    @ApiOperation(value = "盘盈")
+    @RequestMapping(value = "/addextraasset/{orgid}/{username4unit}/{taskid}/{code4gs1}", method = RequestMethod.POST)
+    @ResponseBody
+    public CommonResult addExtraAsset(@PathVariable String orgid,@PathVariable String username4unit,@PathVariable int taskid,@PathVariable String code4gs1){
+        int res =  assetcheckhisService.addExtraAsset(orgid,username4unit,taskid,code4gs1);
+        return CommonResult.success(res);
+    }
+
+
+
 }

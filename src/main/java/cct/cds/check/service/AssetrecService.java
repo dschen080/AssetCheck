@@ -6,7 +6,7 @@ import cct.cds.check.mbg.model.Assetrec;
 
 public interface AssetrecService {
 
-    List<Assetrec> list(Integer pageSize, Integer pageNum, String keyword, String orgid);
+    List<Assetrec> list(Integer pageSize, Integer pageNum, String keyword, String orgid, String assetdept);
 
     List<Assetrec> departlist(Integer pageSize, Integer pageNum, String keyword, String orgid, String depart);
 

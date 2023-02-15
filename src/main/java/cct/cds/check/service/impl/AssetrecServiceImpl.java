@@ -19,13 +19,17 @@ public class AssetrecServiceImpl implements AssetrecService{
     private AssetrecMapper assetrecMapper;
 
     @Override
-    public List<Assetrec> list(Integer pageSize, Integer pageNum, String keyword, String orgid){
+    public List<Assetrec> list(Integer pageSize, Integer pageNum, String keyword, String orgid, String assetdept){
         PageHelper.startPage(pageNum,pageSize);
         AssetrecExample example = new AssetrecExample();
+        AssetrecExample.Criteria criteria = example.createCriteria();
+        criteria.andOrgidEqualTo(orgid);
         if(!keyword.equals("null")){
-            example.createCriteria().andAssetnameLike("%"+keyword+"%");
+            criteria.andAssetnameLike("%"+keyword+"%");
         }
-        example.createCriteria().andOrgidEqualTo(orgid);
+        if(!assetdept.equals("null")){
+            criteria.andAssetdeptLike("%"+assetdept+"%");
+        }
         return assetrecMapper.selectByExample(example);
     }
 

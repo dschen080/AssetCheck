@@ -1,13 +1,8 @@
-package cct.cds.check.mbg.model;
+package cct.cds.check.dto;
 
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-import java.util.Date;
 
-public class Userlisting implements Serializable {
-    @ApiModelProperty(value = "orgId+username4unit")
-    private String username;
-
+public class UserInfo4Android {
     @ApiModelProperty(value = "登录用户名，唯一，可能来自资产云")
     private String staffid;
 
@@ -16,9 +11,6 @@ public class Userlisting implements Serializable {
 
     @ApiModelProperty(value = "本单位的员工ID")
     private String username4unit;
-
-    @ApiModelProperty(value = "密码（Bcrypt）")
-    private String passwd;
 
     @ApiModelProperty(value = "真实姓名")
     private String realname;
@@ -35,18 +27,8 @@ public class Userlisting implements Serializable {
     @ApiModelProperty(value = "备注")
     private String notes;
 
-    @ApiModelProperty(value = "系统时间")
-    private Date createtime;
-
-    private static final long serialVersionUID = 1L;
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
+    @ApiModelProperty(value = "单位全名")
+    private String unitname;
 
     public String getStaffid() {
         return staffid;
@@ -70,14 +52,6 @@ public class Userlisting implements Serializable {
 
     public void setUsername4unit(String username4unit) {
         this.username4unit = username4unit;
-    }
-
-    public String getPasswd() {
-        return passwd;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
     }
 
     public String getRealname() {
@@ -120,33 +94,12 @@ public class Userlisting implements Serializable {
         this.notes = notes;
     }
 
-    public Date getCreatetime() {
-        return createtime;
+    public String getUnitname() {
+        return unitname;
     }
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
+    public void setUnitname(String unitname) {
+        this.unitname = unitname;
     }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", username=").append(username);
-        sb.append(", staffid=").append(staffid);
-        sb.append(", orgid=").append(orgid);
-        sb.append(", username4unit=").append(username4unit);
-        sb.append(", passwd=").append(passwd);
-        sb.append(", realname=").append(realname);
-        sb.append(", usertype=").append(usertype);
-        sb.append(", phone=").append(phone);
-        sb.append(", sectname=").append(sectname);
-        sb.append(", notes=").append(notes);
-        sb.append(", createtime=").append(createtime);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+    
 }

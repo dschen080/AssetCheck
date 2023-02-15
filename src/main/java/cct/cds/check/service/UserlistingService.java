@@ -2,6 +2,7 @@ package cct.cds.check.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
+import cct.cds.check.dto.UserInfo4Android;
 import cct.cds.check.dto.UserInfoParam;
 import cct.cds.check.mbg.model.Userlisting;
 
@@ -22,4 +23,6 @@ public interface UserlistingService {
     boolean deleteAccount(String username);
 
     String getOrgname(String orgid);
+
+    UserInfo4Android getAndroidUserInfo(String orgid,String username4unit);
 }

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cct.cds.check.common.api.CommonResult;
 import cct.cds.check.dto.LoginParam;
+import cct.cds.check.dto.UserInfo4Android;
 import cct.cds.check.dto.UserInfoParam;
 import cct.cds.check.mbg.model.Userlisting;
 import cct.cds.check.service.UserlistingService;
@@ -120,6 +121,17 @@ public class UserlistingController {
         String orgname = userlistingService.getOrgname(orgid);
         if(orgname!=null){
             return CommonResult.success(orgname);
+        }
+        return CommonResult.failed();
+    }
+
+    @ApiOperation(value = "获取用户信息")
+    @RequestMapping(value = "/androidinfo/{orgid}/{username4unit}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult getAndroidUserInfo(@PathVariable String orgid,@PathVariable String username4unit){
+        UserInfo4Android info = userlistingService.getAndroidUserInfo(orgid,username4unit);
+        if(info!=null){
+            return CommonResult.success(info);
         }
         return CommonResult.failed();
     }

@@ -315,62 +315,52 @@ public class AssetchecktaskExample {
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginEqualTo(String value) {
+        public Criteria andTaskbeginEqualTo(Date value) {
             addCriterion("taskBegin =", value, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginNotEqualTo(String value) {
+        public Criteria andTaskbeginNotEqualTo(Date value) {
             addCriterion("taskBegin <>", value, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginGreaterThan(String value) {
+        public Criteria andTaskbeginGreaterThan(Date value) {
             addCriterion("taskBegin >", value, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginGreaterThanOrEqualTo(String value) {
+        public Criteria andTaskbeginGreaterThanOrEqualTo(Date value) {
             addCriterion("taskBegin >=", value, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginLessThan(String value) {
+        public Criteria andTaskbeginLessThan(Date value) {
             addCriterion("taskBegin <", value, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginLessThanOrEqualTo(String value) {
+        public Criteria andTaskbeginLessThanOrEqualTo(Date value) {
             addCriterion("taskBegin <=", value, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginLike(String value) {
-            addCriterion("taskBegin like", value, "taskbegin");
-            return (Criteria) this;
-        }
-
-        public Criteria andTaskbeginNotLike(String value) {
-            addCriterion("taskBegin not like", value, "taskbegin");
-            return (Criteria) this;
-        }
-
-        public Criteria andTaskbeginIn(List<String> values) {
+        public Criteria andTaskbeginIn(List<Date> values) {
             addCriterion("taskBegin in", values, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginNotIn(List<String> values) {
+        public Criteria andTaskbeginNotIn(List<Date> values) {
             addCriterion("taskBegin not in", values, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginBetween(String value1, String value2) {
+        public Criteria andTaskbeginBetween(Date value1, Date value2) {
             addCriterion("taskBegin between", value1, value2, "taskbegin");
             return (Criteria) this;
         }
 
-        public Criteria andTaskbeginNotBetween(String value1, String value2) {
+        public Criteria andTaskbeginNotBetween(Date value1, Date value2) {
             addCriterion("taskBegin not between", value1, value2, "taskbegin");
             return (Criteria) this;
         }
@@ -385,62 +375,52 @@ public class AssetchecktaskExample {
             return (Criteria) this;
         }
 
-        public Criteria andTaskendEqualTo(String value) {
+        public Criteria andTaskendEqualTo(Date value) {
             addCriterion("taskEnd =", value, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendNotEqualTo(String value) {
+        public Criteria andTaskendNotEqualTo(Date value) {
             addCriterion("taskEnd <>", value, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendGreaterThan(String value) {
+        public Criteria andTaskendGreaterThan(Date value) {
             addCriterion("taskEnd >", value, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendGreaterThanOrEqualTo(String value) {
+        public Criteria andTaskendGreaterThanOrEqualTo(Date value) {
             addCriterion("taskEnd >=", value, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendLessThan(String value) {
+        public Criteria andTaskendLessThan(Date value) {
             addCriterion("taskEnd <", value, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendLessThanOrEqualTo(String value) {
+        public Criteria andTaskendLessThanOrEqualTo(Date value) {
             addCriterion("taskEnd <=", value, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendLike(String value) {
-            addCriterion("taskEnd like", value, "taskend");
-            return (Criteria) this;
-        }
-
-        public Criteria andTaskendNotLike(String value) {
-            addCriterion("taskEnd not like", value, "taskend");
-            return (Criteria) this;
-        }
-
-        public Criteria andTaskendIn(List<String> values) {
+        public Criteria andTaskendIn(List<Date> values) {
             addCriterion("taskEnd in", values, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendNotIn(List<String> values) {
+        public Criteria andTaskendNotIn(List<Date> values) {
             addCriterion("taskEnd not in", values, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendBetween(String value1, String value2) {
+        public Criteria andTaskendBetween(Date value1, Date value2) {
             addCriterion("taskEnd between", value1, value2, "taskend");
             return (Criteria) this;
         }
 
-        public Criteria andTaskendNotBetween(String value1, String value2) {
+        public Criteria andTaskendNotBetween(Date value1, Date value2) {
             addCriterion("taskEnd not between", value1, value2, "taskend");
             return (Criteria) this;
         }

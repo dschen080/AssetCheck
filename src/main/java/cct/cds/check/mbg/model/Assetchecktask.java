@@ -15,10 +15,10 @@ public class Assetchecktask implements Serializable {
     private String taskabstract;
 
     @ApiModelProperty(value = "盘点开始时间")
-    private String taskbegin;
+    private Date taskbegin;
 
     @ApiModelProperty(value = "盘点结束时间")
-    private String taskend;
+    private Date taskend;
 
     @ApiModelProperty(value = "任务发起人")
     private String username4unit;
@@ -52,19 +52,19 @@ public class Assetchecktask implements Serializable {
         this.taskabstract = taskabstract;
     }
 
-    public String getTaskbegin() {
+    public Date getTaskbegin() {
         return taskbegin;
     }
 
-    public void setTaskbegin(String taskbegin) {
+    public void setTaskbegin(Date taskbegin) {
         this.taskbegin = taskbegin;
     }
 
-    public String getTaskend() {
+    public Date getTaskend() {
         return taskend;
     }
 
-    public void setTaskend(String taskend) {
+    public void setTaskend(Date taskend) {
         this.taskend = taskend;
     }
 
