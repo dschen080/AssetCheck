@@ -2,14 +2,15 @@ package cct.cds.check.service;
 
 import java.util.List;
 
+import cct.cds.check.common.api.CommonPage;
 import cct.cds.check.dto.AssetcheckhisParam;
 import cct.cds.check.mbg.model.Assetrec;
 
 public interface AssetcheckhisService {
 
-    List<AssetcheckhisParam> list(Integer taskid,Integer pageSize, Integer pageNum);
+    CommonPage<AssetcheckhisParam> list(Integer taskid,Integer pageSize, Integer pageNum);
 
-    List<AssetcheckhisParam> list2(Integer pageSize, Integer pageNum);
+    CommonPage<AssetcheckhisParam> list2(Integer pageSize, Integer pageNum, String orgid);
 
     Boolean delete(int assetchkid); 
 

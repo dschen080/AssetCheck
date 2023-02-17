@@ -37,8 +37,7 @@ public class AssetcheckhisController {
     public CommonResult<CommonPage<AssetcheckhisParam>> list(@PathVariable Integer taskid,
                                                      @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
                                                      @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum){
-        List<AssetcheckhisParam> list = assetcheckhisService.list(taskid,pageSize, pageNum);
-        return CommonResult.success(CommonPage.restPage(list));
+        return CommonResult.success(assetcheckhisService.list(taskid,pageSize, pageNum));
     }
 
     @ApiOperation(value = "查询历史盘点任务5")
@@ -46,9 +45,9 @@ public class AssetcheckhisController {
     @ResponseBody
     public CommonResult<CommonPage<AssetcheckhisParam>> list(
                                                      @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
-                                                     @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum){
-        List<AssetcheckhisParam> list = assetcheckhisService.list2(pageSize, pageNum);
-        return CommonResult.success(CommonPage.restPage(list));
+                                                     @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                                                     @RequestParam(value = "orgid", defaultValue = "null") String orgid){
+        return CommonResult.success(assetcheckhisService.list2(pageSize, pageNum, orgid));
     }
 
     @ApiOperation(value = "删除历史盘点任务")

@@ -78,7 +78,7 @@ public class AssetchecktaskserviceImpl implements AssetchecktaskService{
                 String assetUser = assetrec.getAssetuser();
                 //检查该姓名和部门对应的用户是否存在，若存在则加入盘点任务
                 UserlistingExample userlistingExample = new UserlistingExample();
-                userlistingExample.createCriteria().andSectnameEqualTo(assetdept2).andRealnameEqualTo(assetUser);
+                userlistingExample.createCriteria().andSectnameEqualTo(assetdept2).andRealnameEqualTo(assetUser).andOrgidEqualTo(orgid);
                 List<Userlisting> userlist = userlistingMapper.selectByExample(userlistingExample);
                 //用户存在
                 if(userlist.size()>0){
