@@ -101,7 +101,6 @@ public class AssetcheckhisserviceImpl implements AssetcheckhisService{
             BeanUtil.copyProperties(assetrec, assetcheckhisParam);
             UserlistingExample userlistingExample = new UserlistingExample();
             userlistingExample.createCriteria().andOrgidEqualTo(assetcheckhisParam.getOrgid()).andUsername4unitEqualTo(assetcheckhisParam.getUsername4unit());
-            String name = userlistingMapper.selectByExample(userlistingExample).get(0).getRealname();
             if(userlistingMapper.countByExample(userlistingExample)>0){
                 String names = userlistingMapper.selectByExample(userlistingExample).get(0).getRealname();
                 assetcheckhisParam.setUsername4unit(names);

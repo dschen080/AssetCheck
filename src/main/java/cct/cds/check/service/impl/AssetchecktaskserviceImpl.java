@@ -128,7 +128,6 @@ public class AssetchecktaskserviceImpl implements AssetchecktaskService{
             assetchecktaskStatisticsParam.setChecked(checked);
             assetchecktaskStatisticsParam.setLoss(loss);
             assetchecktaskStatisticsParam.setTobechecked(tobechecked);
-            assetchecktaskStatisticsParam.setCreatetime(new Date());
             list2.add(assetchecktaskStatisticsParam);
         }
         return list2;

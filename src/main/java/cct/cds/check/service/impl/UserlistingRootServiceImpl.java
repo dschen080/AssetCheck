@@ -30,7 +30,16 @@ public class UserlistingRootServiceImpl implements UserlistingRootService{
     public List<Userlisting> list(String orgId,Integer pageSize, Integer pageNum){
         PageHelper.startPage(pageNum,pageSize);
         UserlistingExample example = new UserlistingExample();
-        example.createCriteria().andOrgidEqualTo(orgId);
+        example.createCriteria().andOrgidEqualTo(orgId).andUsertypeEqualTo((byte)3);
+        List<Userlisting> userlistings = userlistingMapper.selectByExample(example);
+        return userlistings;
+    }
+
+    @Override
+    public List<Userlisting> listroot(String orgId,Integer pageSize, Integer pageNum){
+        PageHelper.startPage(pageNum,pageSize);
+        UserlistingExample example = new UserlistingExample();
+        example.createCriteria().andOrgidEqualTo(orgId).andUsertypeEqualTo((byte)1);
         List<Userlisting> userlistings = userlistingMapper.selectByExample(example);
         return userlistings;
     }
@@ -39,7 +48,7 @@ public class UserlistingRootServiceImpl implements UserlistingRootService{
     public List<Userlisting> list2(String orgid,String sectname, Integer pageSize, Integer pageNum){
         PageHelper.startPage(pageNum,pageSize);
         UserlistingExample example = new UserlistingExample();
-        example.createCriteria().andOrgidEqualTo(orgid).andSectnameEqualTo(sectname);
+        example.createCriteria().andOrgidEqualTo(orgid).andSectnameEqualTo(sectname).andUsertypeEqualTo((byte)5);
         List<Userlisting> userlistings = userlistingMapper.selectByExample(example);
         return userlistings;
     }

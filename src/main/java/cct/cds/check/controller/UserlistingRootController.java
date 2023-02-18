@@ -29,6 +29,16 @@ public class UserlistingRootController {
     private UserlistingRootService userlistingRootService;
 
     @ApiOperation(value = "获取单位资产管理员列表")
+    @RequestMapping(value = "/selectroot/{orgId}", method = RequestMethod.GET)
+    @ResponseBody
+    public CommonResult<CommonPage<Userlisting>> listroot(@PathVariable String orgId,
+                                                     @RequestParam(value = "pageSize", defaultValue = "5") Integer pageSize,
+                                                     @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum){
+        List<Userlisting> list = userlistingRootService.listroot(orgId,pageSize, pageNum);
+        return CommonResult.success(CommonPage.restPage(list));
+    }
+
+    @ApiOperation(value = "获取部门资产管理员列表")
     @RequestMapping(value = "/select/{orgId}", method = RequestMethod.GET)
     @ResponseBody
     public CommonResult<CommonPage<Userlisting>> list(@PathVariable String orgId,

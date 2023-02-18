@@ -9,6 +9,8 @@ public interface UserlistingRootService {
 
     List<Userlisting> list(String orgId,Integer pageSize, Integer pageNum);
 
+    List<Userlisting> listroot(String orgId,Integer pageSize, Integer pageNum);
+
     List<Userlisting> list2(String orgid, String sectname,Integer pageSize, Integer pageNum);
 
     Boolean create(UserInfoParam2 userInfoParam);
